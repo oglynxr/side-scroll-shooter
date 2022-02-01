@@ -1,0 +1,14 @@
+coins-1.wav
+	sound from: https://freesound.org/people/ProjectsU012/sounds/341695/
+	license: https://creativecommons.org/licenses/by/3.0/legalcode
+	author: ProjectsU012
+	
+arcade-music-loop.wav
+	sound from: https://freesound.org/people/joshuaempyre/sounds/251461/
+	license: https://creativecommons.org/licenses/by/3.0/legalcode
+	author: joshuaempyre
+
+laser-shoot.wav
+	sound from: https://freesound.org/people/MusicLegends/sounds/344310/
+	license: https://creativecommons.org/licenses/by/3.0/legalcode
+	author: MusicLegends

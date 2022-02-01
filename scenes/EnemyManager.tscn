@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/EnemyManager.gd" type="Script" id=1]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="EnemyPlaneTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TorpedoTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="TrackingTorpedoTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="SpawnTopLeft" type="Position2D" parent="."]
+position = Vector2( 2100, 100 )
+
+[node name="SpawnBottomRight" type="Position2D" parent="."]
+position = Vector2( 2500, 980 )
+
+[connection signal="timeout" from="EnemyPlaneTimer" to="." method="_on_EnemyPlaneTimer_timeout"]
+[connection signal="timeout" from="TorpedoTimer" to="." method="_on_TorpedoTimer_timeout"]
+[connection signal="timeout" from="TrackingTorpedoTimer" to="." method="_on_TrackingTorpedoTimer_timeout"]

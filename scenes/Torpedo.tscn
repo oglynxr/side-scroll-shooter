@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/torpedo/torpedo.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Torpedo.gd" type="Script" id=2]
+[ext_resource path="res://assets/torpedo/torpedo_flame.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.9999
+height = 28.0001
+
+[node name="Torpedo" type="Area2D" groups=["enemies"]]
+collision_layer = 2
+linear_damp = 0.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Thrusters" type="Sprite" parent="."]
+position = Vector2( 47, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="Body" type="Sprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 20, 0 )
+scale = Vector2( 4.6, 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_Torpedo_area_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

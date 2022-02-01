@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/plane_1/plane_1_yellow.png" type="Texture" id=1]
+[ext_resource path="res://scenes/EnemyPlane.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Bullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 35.9999
+height = 52.0002
+
+[node name="EnemyPlane" type="Area2D" groups=["enemies"]]
+collision_layer = 6
+collision_mask = 4
+script = ExtResource( 2 )
+bullet_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 4.5, 0 )
+scale = Vector2( 5.65, 2.6 )
+
+[node name="ShootTimer" type="Timer" parent="." groups=["enemies"]]
+
+[connection signal="area_entered" from="." to="." method="_on_EnemyPlane_area_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

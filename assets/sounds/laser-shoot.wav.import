@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laser-shoot.wav-0f4af59ed8d298561331b22104910094.sample"
+
+[deps]
+
+source_file="res://assets/sounds/laser-shoot.wav"
+dest_files=[ "res://.import/laser-shoot.wav-0f4af59ed8d298561331b22104910094.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
